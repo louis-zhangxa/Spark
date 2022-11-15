@@ -1,0 +1,20 @@
+.cotainer {
+  width: 80%;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+}
+
+.column-full {
+  flex-basis: 100%;
+}
+
+.column-half {
+  flex-basis: 50%;
+}
+
+.column-fourth-one {
+  flex-basis: 25%;
+}
