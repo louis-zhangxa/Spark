@@ -19,11 +19,40 @@
   </header>
   <main>
     <div class="background-img">
-      <div class="cotainer">
-        <div data-view="home-page">
-          <div class="row random-button">
-            <div class="column">
-              <button>Let's Go!</button>
+      <div class="overlay-transparent">
+        <div class="container">
+          <div data-view="home-page" class="home-page">
+            <div class="row random-button">
+              <div class="column">
+                <button id="random">Let's Go!</button>
+              </div>
+            </div>
+          </div>
+          <div data-view="park-detail" class="park-detail hidden">
+            <h3 id="park-name">Yosemite National Parks</h3>
+            <div class="row">
+              <div class="column-half">
+                <img src="https://www.nps.gov/common/uploads/structured_data/05383E91-AA28-2DDC-AB517507594F9FA6.jpg" alt="" id="park-images1">
+              </div>
+              <div class="column-half">
+                <h4 id="first-h4">Description</h4>
+                <p id="park-description">Not just a great valley, but a shrine to human foresight, the strength of granite, the power of glaciers, the
+                        persistence of life, and the tranquility of the High Sierra. First protected in 1864, Yosemite National Park
+                        is best
+                        known for its waterfalls, but within its nearly 1,200 square miles, you can find deep valleys, grand meadows,
+                        ancient
+                        giant sequoias, a vast wilderness area, and much more.</p>
+                <h4>WeatherInfo</h4>
+                <p id="park-weatherinfo">Yosemite National Park covers nearly 1,200 square miles (3,100 square km) in the Sierra Nevada, with
+                        elevations
+                        ranging
+                        from about 2,000 feet (600 m) to 13,000 ft (4,000 m). Yosemite receives 95% of its precipitation between
+                        October and
+                        May
+                        (and over 75% between November and March). Most of Yosemite is blanketed in snow from about November through
+                        May.
+                        (Yosemite Valley can be rainy or snowy in any given winter storm.)</p>
+              </div>
             </div>
           </div>
         </div>

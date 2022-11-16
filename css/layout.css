@@ -1,20 +1,42 @@
-.cotainer {
+.hidden {
+  display: none !important;
+}
+
+.container {
   width: 80%;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .row {
   display: flex;
+  flex-wrap: wrap;
 }
 
-.column-full {
-  flex-basis: 100%;
-}
-
+.column-full,
 .column-half {
-  flex-basis: 50%;
+  width: 100%;
+}
+
+.column-auto {
+  flex-basis: auto;
 }
 
 .column-fourth-one {
   flex-basis: 25%;
+}
+
+@media only screen and (min-width: 1100px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .column-full,
+  .column-half {
+    padding: 0 0.75rem;
+  }
+
+  .column-half {
+    width: 50%;
+  }
 }

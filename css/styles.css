@@ -9,10 +9,19 @@ header h3 {
   font-size: 20px;
 }
 
+.overlay-transparent {
+  height: 100vh;
+  background-color: transparent;
+}
+
+.overlay-solid {
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.625);
+}
+
 .background-img {
   background-image: url("../images/Mobile.jpg");
   width: 100%;
-  height: 100vh;
   background-size: cover;
 }
 
@@ -31,12 +40,34 @@ header h3 {
   letter-spacing: 1px;
 }
 
-@media only screen and (min-width: 500px) {
+.park-detail h3 {
+  padding: 1rem;
+  margin: 0;
+  text-align: center;
+}
+
+.park-detail img {
+  width: 100%;
+}
+
+.park-detail h4 {
+  margin: 1rem 0;
+}
+
+.park-detail p {
+  font-size: small;
+}
+
+@media only screen and (min-width: 1100px) {
   .background-img {
     background-image: url("../images/Desktop.jpg");
     width: 100%;
     height: 100vh;
     background-size: cover;
+  }
+
+  .overlay-solid {
+    background-color: transparent;
   }
 
   .random-button button {
@@ -46,6 +77,34 @@ header h3 {
     padding: 1.5rem;
     border-radius: 0.3rem;
     letter-spacing: 1px;
+  }
+
+  .park-detail img {
+    padding: 0 3rem 3rem;
+    width: 100%;
+  }
+
+  .park-detail h3 {
+    color: white;
+    letter-spacing: 1px;
+    padding: 2rem 0 5rem;
+    font-size: xx-large;
+  }
+
+  #first-h4 {
+    margin: 0 0 2rem;
+  }
+
+  .park-detail h4 {
+    font-size: x-large;
+    color: white;
+    margin: 2rem 0;
+  }
+
+  .park-detail p {
+    color: white;
+    line-height: 2;
+    font-size: large;
   }
 }
 
