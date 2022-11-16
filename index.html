@@ -11,8 +11,72 @@
 </head>
 <body>
   <header>
+    <div class="row">
+      <div class="column-fourth-one">
+        <button id="home">SPark</button>
+      </div>
+    </div>
   </header>
   <main>
+    <div class="container">
+      <div data-view="home-page" class="home-page">
+        <div class="row random-button">
+          <div class="column">
+            <button id="random">Get Random National Park</button>
+          </div>
+        </div>
+      </div>
+      <div data-view="park-detail" class="park-detail hidden">
+        <h3 id="park-name"></h3>
+        <div class="row">
+          <div class="column-half">
+            <img src="" alt="" id="park-images1">
+          </div>
+          <div class="column-half">
+            <div class="column-full">
+              <h4 id="first-h4">Description</h4>
+              <p id="park-description"></p>
+            </div>
+            <div class="row">
+              <div class="column-half">
+                <h4>State</h4>
+                <p id="park-state"></p>
+              </div>
+              <div class="column-half">
+                <h4>Offical Link</h4>
+                <a href="" id="park-link"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-half">
+            <h4>Weather Info</h4>
+            <p id="park-weatherinfo"></p>
+          </div>
+          <div class="column-half">
+            <div class="row">
+              <div class="column-half">
+                <h4>Enteance Fees</h4>
+                <ul>
+                  <li id="cost"></li>
+                  <li id="cost-description"></li>
+                </ul>
+              </div>
+              <div class="column-half">
+                <h4>Address</h4>
+                <ul>
+                  <li id="park-address-line1"></li>
+                  <li id="park-address-line2"></li>
+                  <li id="park-phone-number"></li>
+                  <li id="park-email"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

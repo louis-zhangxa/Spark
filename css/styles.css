@@ -1,0 +1,123 @@
+body {
+  background-image: url("../images/Mobile.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.overlay {
+  background-image: url("../images/Mobile-overlay.png");
+}
+
+header {
+  background-color: #46586c;
+}
+
+#home {
+  color: white;
+  background-color: transparent;
+  border: 0;
+  padding: 1rem;
+  font-family: Roboto, normal, sans-serif;
+  font-size: 20px;
+}
+
+.random-button {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.random-button button {
+  background-color: #6c757d;
+  color: white;
+  border: 0;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+  letter-spacing: 1px;
+}
+
+.park-detail h3 {
+  padding: 1rem;
+  margin: 0;
+  text-align: center;
+}
+
+.park-detail img {
+  width: 100%;
+}
+
+.park-detail h4 {
+  margin: 1rem 0;
+}
+
+.park-detail p {
+  font-size: small;
+}
+
+.park-detail a {
+  text-decoration: none;
+}
+
+.park-detail ul,
+.park-detail li {
+  list-style: none;
+  padding: 0;
+  line-height: 1.7;
+}
+
+@media only screen and (min-width: 700px) {
+  body {
+    background-image: url("../images/Desktop.jpg") !important;
+  }
+
+  #home {
+    cursor: pointer;
+  }
+
+  .random-button button {
+    background-color: #7b9ab7;
+    color: white;
+    border: 0;
+    padding: 1.5rem;
+    border-radius: 0.3rem;
+    letter-spacing: 1px;
+  }
+
+  .park-detail h3 {
+    color: white;
+    letter-spacing: 1px;
+    padding: 2rem 0 5rem;
+    font-size: xx-large;
+  }
+
+  .park-detail img {
+    padding: 0 1rem 3rem;
+    width: 100%;
+  }
+
+  #first-h4 {
+    margin: 0 0 2rem;
+  }
+
+  .park-detail h4 {
+    font-size: x-large;
+    color: white;
+    margin: 2rem 0;
+  }
+
+  .park-detail p {
+    color: white;
+    line-height: 2;
+    font-size: large;
+  }
+
+  .park-detail a {
+    color: aqua;
+  }
+
+  .park-detail ul,
+  .park-detail li {
+    color: white;
+  }
+}

@@ -1,0 +1,42 @@
+.hidden {
+  display: none !important;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-full,
+.column-half {
+  width: 100%;
+}
+
+.column-auto {
+  flex-basis: auto;
+}
+
+.column-fourth-one {
+  flex-basis: 25%;
+}
+
+@media only screen and (min-width: 700px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .column-full,
+  .column-half {
+    padding: 0 0.75rem;
+  }
+
+  .column-half {
+    width: 50%;
+  }
+}
