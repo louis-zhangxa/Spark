@@ -22,13 +22,31 @@ header {
   font-size: 20px;
 }
 
+.desktop-search {
+  display: none;
+}
+
+.mobile-search {
+  display: flex;
+}
+
+#mobile-search-box {
+  margin-top: 1rem;
+  padding: 0.3rem;
+  padding-left: 1.5rem;
+  background-color: #f5f4f5;
+  box-shadow: 2px 2px 2px lightgray;
+  border: 0;
+}
+
 .random-button {
   height: 100vh;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .random-button button {
+  margin-bottom: 3rem;
   background-color: #6c757d;
   color: white;
   border: 0;
@@ -73,6 +91,38 @@ header {
 
   #home {
     cursor: pointer;
+  }
+
+  .header {
+    justify-content: space-between;
+  }
+
+  .desktop-search {
+    display: flex;
+  }
+
+  #desktop-search-box {
+    margin: 0.3rem;
+    padding: 0.7rem;
+    border: 0;
+    border-radius: 0.3rem;
+  }
+
+  #desktop-search-button {
+    margin: 0.3rem;
+    padding: 0.7rem;
+    border: 2px solid white;
+    border-radius: 0.3rem;
+    color: white;
+    background-color: #46596c;
+  }
+
+  .mobile-search {
+    display: none;
+  }
+
+  .random-button {
+    align-items: center;
   }
 
   .random-button button {
