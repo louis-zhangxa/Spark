@@ -1,4 +1,5 @@
 var $random = document.querySelector('#random');
+var $mobileSearch = document.querySelector('.mobile-search');
 var $homePage = document.querySelector('.home-page');
 var $parkDetail = document.querySelector('.park-detail');
 var $body = document.querySelector('body');
@@ -29,7 +30,8 @@ function submitSearch(event) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://developer.nps.gov/api/v1/parks?limit=468&' + result + 'api_key=zfq2cSth1H6ynVcxdUiCUfdUdsTPyW6nusqU7OFY');
   xhr.responseType = 'json';
-  xhr.addEventListener('load', function () { });
+  xhr.addEventListener('load', function () {
+  });
   xhr.send();
 }
 
@@ -59,12 +61,14 @@ function getParkData() {
 }
 
 function getRandomPark(event) {
+  $mobileSearch.className = 'row mobile-search hidden';
   $homePage.className = 'home-page hidden';
   $body.className = 'overlay';
   getParkData();
 }
 
 function backHome(event) {
+  $mobileSearch.className = 'row mobile-search';
   $homePage.className = 'home-page';
   $parkDetail.className = 'park-detail hidden';
   $body.removeAttribute('class');

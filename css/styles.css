@@ -28,11 +28,12 @@ header {
 .random-button {
   height: 100vh;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .mobile-search {
-  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #mobile-search-box {
@@ -52,6 +53,7 @@ header {
   position: absolute;
   left: 5px;
   bottom: 4px;
+  border: 0;
 }
 
 .random-button button {
@@ -129,10 +131,6 @@ header {
 
   .mobile-search {
     display: none;
-  }
-
-  .random-button {
-    align-items: center;
   }
 
   .random-button button {
