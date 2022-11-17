@@ -25,6 +25,10 @@
   flex-basis: 25%;
 }
 
+.position-relative {
+  position: relative;
+}
+
 @media only screen and (min-width: 700px) {
   .container {
     width: 90%;

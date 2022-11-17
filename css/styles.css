@@ -33,10 +33,17 @@ header {
 #mobile-search-box {
   margin-top: 1rem;
   padding: 0.3rem;
-  padding-left: 1.5rem;
+  padding-left: 1.7rem;
   background-color: #f5f4f5;
   box-shadow: 2px 2px 2px lightgray;
   border: 0;
+}
+
+.mobile-search-button {
+  color: #6c757d;
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
 }
 
 .random-button {
@@ -109,7 +116,8 @@ header {
   }
 
   #desktop-search-button {
-    margin: 0.3rem;
+    cursor: pointer;
+    margin: 0.3rem 0.5rem 0.3rem 0;
     padding: 0.7rem;
     border: 2px solid white;
     border-radius: 0.3rem;
@@ -126,6 +134,7 @@ header {
   }
 
   .random-button button {
+    cursor: pointer;
     background-color: #7b9ab7;
     color: white;
     border: 0;
