@@ -18,12 +18,17 @@ header {
   background-color: transparent;
   border: 0;
   padding: 1rem;
-  font-family: Roboto, normal, sans-serif;
   font-size: 20px;
 }
 
 .desktop-search {
   display: none;
+}
+
+.random-button {
+  height: 100vh;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .mobile-search {
@@ -39,17 +44,14 @@ header {
   border: 0;
 }
 
-.mobile-search-button {
+#mobile-search-button {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
   color: #6c757d;
   position: absolute;
   left: 5px;
-  bottom: 5px;
-}
-
-.random-button {
-  height: 100vh;
-  justify-content: center;
-  align-items: flex-start;
+  bottom: 4px;
 }
 
 .random-button button {
@@ -91,7 +93,7 @@ header {
   line-height: 1.7;
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 900px) {
   body {
     background-image: url("../images/Desktop.jpg") !important;
   }
@@ -151,7 +153,7 @@ header {
   }
 
   .park-detail img {
-    padding: 0 1rem 3rem;
+    padding: 0 1rem 1rem;
     width: 100%;
   }
 

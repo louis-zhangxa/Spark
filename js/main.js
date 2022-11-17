@@ -3,6 +3,10 @@ var $homePage = document.querySelector('.home-page');
 var $parkDetail = document.querySelector('.park-detail');
 var $body = document.querySelector('body');
 var $backHome = document.querySelector('#home');
+var $mobileSearchSubmit = document.querySelector('.position-relative-mobile');
+var $desktopSearchSubmit = document.querySelector('.position-relative-desktop');
+var $mobileSearchContent = document.querySelector('#mobile-search-box');
+var $desktopSearchContent = document.querySelector('#desktop-search-box');
 
 var $parkName = document.querySelector('#park-name');
 var $parkImages1 = document.querySelector('#park-images1');
@@ -19,6 +23,15 @@ var $parkEmail = document.querySelector('#park-email');
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
+}
+
+function submitSearch(event) {
+  event.preventDefault();
+  var mobileSearch = $mobileSearchContent.value;
+  var desktopSearch = $desktopSearchContent.value;
+  if (mobileSearch || desktopSearch !== '') {
+    return mobileSearch || desktopSearch;
+  }
 }
 
 function getParkData() {
@@ -60,3 +73,6 @@ function backHome(event) {
 
 $random.addEventListener('click', getRandomPark);
 $backHome.addEventListener('click', backHome);
+
+$mobileSearchSubmit.addEventListener('submit', submitSearch);
+$desktopSearchSubmit.addEventListener('submit', submitSearch);
