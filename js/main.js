@@ -5,8 +5,6 @@ var $body = document.querySelector('body');
 var $backHome = document.querySelector('#home');
 var $mobileSearchSubmit = document.querySelector('.position-relative-mobile');
 var $desktopSearchSubmit = document.querySelector('.position-relative-desktop');
-var $mobileSearchContent = document.querySelector('#mobile-search-box');
-var $desktopSearchContent = document.querySelector('#desktop-search-box');
 
 var $parkName = document.querySelector('#park-name');
 var $parkImages1 = document.querySelector('#park-images1');
@@ -27,11 +25,12 @@ function getRandomInt(max) {
 
 function submitSearch(event) {
   event.preventDefault();
-  var mobileSearch = $mobileSearchContent.value;
-  var desktopSearch = $desktopSearchContent.value;
-  if (mobileSearch || desktopSearch !== '') {
-    return mobileSearch || desktopSearch;
-  }
+  var result = 'q=' + event.target.elements.q.value + '&';
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://developer.nps.gov/api/v1/parks?limit=468&' + result + 'api_key=zfq2cSth1H6ynVcxdUiCUfdUdsTPyW6nusqU7OFY');
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', function () { });
+  xhr.send();
 }
 
 function getParkData() {
