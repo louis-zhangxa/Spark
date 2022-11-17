@@ -25,7 +25,12 @@
   flex-basis: 25%;
 }
 
-@media only screen and (min-width: 700px) {
+.position-relative-mobile,
+.position-relative-desktop {
+  position: relative;
+}
+
+@media only screen and (min-width: 900px) {
   .container {
     width: 90%;
     margin: 0 auto;

@@ -8,12 +8,21 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <header>
-    <div class="row">
-      <div class="column-fourth-one">
+    <div class="row header">
+      <div class="column-auto">
         <button id="home">SPark</button>
+      </div>
+      <div class="column-auto desktop-search">
+        <form action="" class="position-relative-desktop">
+          <input type="search" name="q" id="desktop-search-box" size="30">
+          <button id="desktop-search-button">Search</button>
+        </form>
       </div>
     </div>
   </header>
@@ -21,6 +30,15 @@
     <div class="container">
       <div data-view="home-page" class="home-page">
         <div class="row random-button">
+          <div class="column mobile-search">
+            <form action="" class="position-relative-mobile">
+              <input type="search" name="q" id="mobile-search-box" size="30" placeholder="Search a park...">
+              <button id="mobile-search-button">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+
+            </form>
+          </div>
           <div class="column">
             <button id="random">Get Random National Park</button>
           </div>
