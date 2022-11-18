@@ -66,6 +66,11 @@ header {
   letter-spacing: 1px;
 }
 
+.search-placeholder {
+  padding: 3rem 0;
+  text-align: center;
+}
+
 ul,
 li {
   list-style: none;
@@ -81,7 +86,7 @@ li {
   padding: 2rem;
   padding-top: 1rem;
   border-radius: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.719);
+  background-color: rgba(212, 216, 217, 0.789);
 }
 
 .park-info-content-box h3 {
@@ -176,6 +181,17 @@ li {
     letter-spacing: 1px;
   }
 
+  .search-placeholder {
+    color: whitesmoke;
+    padding: 15rem 0;
+    font-size: xx-large;
+    text-align: center;
+  }
+
+  .park-info-content-box {
+    background-color: rgba(255, 255, 255, 0.719);
+  }
+
   .park-info-content-box img {
     height: 17rem;
   }
@@ -189,6 +205,8 @@ li {
 
   .park-detail img {
     padding: 0 1rem 1rem;
+    height: 600px;
+    object-fit: cover;
     width: 100%;
   }
 
