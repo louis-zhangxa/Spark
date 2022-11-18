@@ -11,6 +11,9 @@ var $desktopSearchBox = document.querySelector('#desktop-search-box');
 var $searchResult = document.querySelector('.park-list-row');
 var $parkList = document.querySelector('.park-list');
 var $searchPlaceholder = document.querySelector('.search-placeholder');
+var $userRandomButton = document.querySelector('.user-random-button');
+var $favoriteButton = document.querySelector('.favorite-button');
+var $favoriteIcon = document.querySelector('.fa-star');
 
 var $parkName = document.querySelector('#park-name');
 var $parkImages1 = document.querySelector('#park-images1');
@@ -84,6 +87,7 @@ function getParkData() {
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     var i = getRandomInt(468);
+    parkCode = xhr.response.data[i].parkCode;
     $parkName.textContent = xhr.response.data[i].fullName;
     $parkImages1.setAttribute('src', xhr.response.data[i].images[0].url);
     $parkImages1.setAttribute('alt', xhr.response.data[i].images[0].altText);
@@ -123,7 +127,6 @@ function getParkDataByParkCode() {
     $parkPhoneNumber.textContent = 'Tel: ' + xhr.response.data[0].contacts.phoneNumbers[0].phoneNumber;
     $parkEmail.textContent = xhr.response.data[0].contacts.emailAddresses[0].emailAddress;
     $parkDetail.className = 'park-detail';
-    parkCode = null;
   });
   xhr.send();
 }
@@ -140,6 +143,30 @@ $searchResult.addEventListener('click', function (event) {
     $desktopSearchBox.value = '';
   }
 });
+
+function saveFavoritePark(event) {
+  if ($favoriteIcon.className !== 'fa-solid fa-star') {
+    $favoriteIcon.className = 'fa-solid fa-star';
+    if (data.parks.length !== 0) {
+      for (var i = 0; i < data.parks.length; i++) {
+        if (data.parks[i] === parkCode) {
+          return;
+        }
+      }
+      data.parks.unshift(parkCode);
+    } else {
+      data.parks.unshift(parkCode);
+    }
+  } else {
+    $favoriteIcon.className = 'fa-regular fa-star';
+    for (var j = 0; j < data.parks.length; j++) {
+      if (data.parks[j] === parkCode) {
+        data.parks.shift(data.parks[j]);
+        break;
+      }
+    }
+  }
+}
 
 function showSearchResult(event) {
   $parkList.className = '$parkList';
@@ -166,6 +193,8 @@ function backHome(event) {
   $body.removeAttribute('class');
 }
 
+$favoriteButton.addEventListener('click', saveFavoritePark);
+$userRandomButton.addEventListener('click', getRandomPark);
 $random.addEventListener('click', getRandomPark);
 $backHome.addEventListener('click', backHome);
 

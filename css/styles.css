@@ -236,7 +236,16 @@ li {
 
   .user-random-button,
   .favorite-button {
+    cursor: pointer;
     padding: 0.8rem;
+  }
+
+  .fa-star:hover {
+    transform: scale(1.3);
+  }
+
+  .fa-dice:hover {
+    animation: rotation 0.2s infinite linear;
   }
 
   .park-detail img {
@@ -269,5 +278,15 @@ li {
   .park-detail ul,
   .park-detail li {
     color: white;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
   }
 }
