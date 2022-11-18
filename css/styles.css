@@ -66,6 +66,12 @@ header {
   letter-spacing: 1px;
 }
 
+ul,
+li {
+  list-style: none;
+  padding: 0;
+}
+
 .park-info-card {
   padding: 1rem;
   background-color: transparent;
@@ -113,8 +119,6 @@ header {
 
 .park-detail ul,
 .park-detail li {
-  list-style: none;
-  padding: 0;
   line-height: 1.7;
 }
 
