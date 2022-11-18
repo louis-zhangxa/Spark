@@ -13,8 +13,13 @@
 }
 
 .column-full,
-.column-half {
+.column-half,
+.column-third {
   width: 100%;
+}
+
+.user-button-flex {
+  width: 50%;
 }
 
 .column-auto {
@@ -43,5 +48,9 @@
 
   .column-half {
     width: 50%;
+  }
+
+  .column-third {
+    width: calc(100% / 3);
   }
 }

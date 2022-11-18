@@ -21,18 +21,9 @@ header {
   font-size: 20px;
 }
 
-.desktop-search {
-  display: none;
-}
-
-.random-button {
-  height: 100vh;
-  justify-content: center;
-  align-items: flex-start;
-}
-
 .mobile-search {
-  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #mobile-search-box {
@@ -52,6 +43,17 @@ header {
   position: absolute;
   left: 5px;
   bottom: 4px;
+  border: 0;
+}
+
+.desktop-search {
+  display: none;
+}
+
+.random-button {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
 .random-button button {
@@ -62,6 +64,64 @@ header {
   padding: 0.8rem;
   border-radius: 0.3rem;
   letter-spacing: 1px;
+}
+
+.search-placeholder {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+}
+
+.park-info-card {
+  padding: 1rem;
+  background-color: transparent;
+}
+
+.park-info-content-box {
+  padding: 2rem;
+  padding-top: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgba(212, 216, 217, 0.789);
+}
+
+.park-info-content-box h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.park-image {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+}
+
+.user-button {
+  padding: 0 0 1rem;
+  justify-content: center;
+  align-content: center;
+}
+
+.favorite-button,
+.user-random-button {
+  border: 0;
+  padding: 0.3rem;
+  color: white;
+  background-color: #89b6f5;
+  border-radius: 0.5rem;
+}
+
+.user-random-button {
+  background-color: #e5a5b4;
+}
+
+.user-button-flex {
+  display: flex;
+  justify-content: space-between;
 }
 
 .park-detail h3 {
@@ -88,12 +148,16 @@ header {
 
 .park-detail ul,
 .park-detail li {
-  list-style: none;
-  padding: 0;
   line-height: 1.7;
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 400px) {
+  .park-info-content-box img {
+    height: 15rem;
+  }
+}
+
+@media only screen and (min-width: 750px) {
   body {
     background-image: url("../images/Desktop.jpg") !important;
   }
@@ -131,10 +195,6 @@ header {
     display: none;
   }
 
-  .random-button {
-    align-items: center;
-  }
-
   .random-button button {
     cursor: pointer;
     background-color: #7b9ab7;
@@ -145,15 +205,44 @@ header {
     letter-spacing: 1px;
   }
 
+  .search-placeholder {
+    color: whitesmoke;
+    padding: 15rem 0;
+    font-size: xx-large;
+    text-align: center;
+  }
+
+  .park-info-content-box {
+    background-color: rgba(255, 255, 255, 0.719);
+  }
+
+  .park-image {
+    cursor: pointer;
+    height: 17rem;
+  }
+
   .park-detail h3 {
     color: white;
     letter-spacing: 1px;
-    padding: 2rem 0 5rem;
+    padding: 2rem 0 1.5rem;
     font-size: xx-large;
+  }
+
+  .user-button {
+    padding: 0 0 2.5rem;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .user-random-button,
+  .favorite-button {
+    padding: 0.8rem;
   }
 
   .park-detail img {
     padding: 0 1rem 1rem;
+    height: 600px;
+    object-fit: cover;
     width: 100%;
   }
 
