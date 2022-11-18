@@ -18,6 +18,10 @@
   width: 100%;
 }
 
+.user-button-flex {
+  width: 50%;
+}
+
 .column-auto {
   flex-basis: auto;
 }

@@ -94,10 +94,34 @@ li {
   text-align: center;
 }
 
-.park-info-content-box img {
+.park-image {
   width: 100%;
   height: 10rem;
   object-fit: cover;
+}
+
+.user-button {
+  padding: 0 0 1rem;
+  justify-content: center;
+  align-content: center;
+}
+
+.favorite-button,
+.user-random-button {
+  border: 0;
+  padding: 0.3rem;
+  color: white;
+  background-color: #89b6f5;
+  border-radius: 0.5rem;
+}
+
+.user-random-button {
+  background-color: #e5a5b4;
+}
+
+.user-button-flex {
+  display: flex;
+  justify-content: space-between;
 }
 
 .park-detail h3 {
@@ -192,15 +216,27 @@ li {
     background-color: rgba(255, 255, 255, 0.719);
   }
 
-  .park-info-content-box img {
+  .park-image {
+    cursor: pointer;
     height: 17rem;
   }
 
   .park-detail h3 {
     color: white;
     letter-spacing: 1px;
-    padding: 2rem 0 5rem;
+    padding: 2rem 0 1.5rem;
     font-size: xx-large;
+  }
+
+  .user-button {
+    padding: 0 0 2.5rem;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .user-random-button,
+  .favorite-button {
+    padding: 0.8rem;
   }
 
   .park-detail img {
