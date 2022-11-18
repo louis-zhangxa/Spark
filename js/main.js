@@ -161,7 +161,7 @@ function saveFavoritePark(event) {
     $favoriteIcon.className = 'fa-regular fa-star';
     for (var j = 0; j < data.parks.length; j++) {
       if (data.parks[j] === parkCode) {
-        data.parks.shift(data.parks[j]);
+        data.parks.splice(j, 1);
         break;
       }
     }
