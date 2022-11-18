@@ -24,6 +24,25 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
+// function renderSearch(event) {
+//   var $parkInfoCard = document.createElement('div');
+//   $parkInfoCard.setAttribute('class', 'column-third park-info-card');
+
+//   var $parkInfoContentBox = document.createElement('div');
+//   $parkInfoContentBox.setAttribute('class', 'park-info-content-box');
+
+//   var $parkH3 = document.createElement('h3');
+//   $parkH3.textContent =
+
+//   var $parkImg = document.createElement('img');
+//   $parkImg.setAttribute = ('src', '');
+//   $parkImg.setAttribute = ('alt', '');
+
+//   $parkInfoCard.appendChild($parkInfoContentBox);
+//   $parkInfoContentBox.appendChild($parkH3);
+//   $parkInfoContentBox.appendChild($parkImg);
+// }
+
 function submitSearch(event) {
   event.preventDefault();
   var result = 'q=' + event.target.elements.q.value + '&';
