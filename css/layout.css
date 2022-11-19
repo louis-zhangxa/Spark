@@ -26,10 +26,6 @@
   flex-basis: auto;
 }
 
-.column-fourth-one {
-  flex-basis: 25%;
-}
-
 .position-relative-mobile,
 .position-relative-desktop {
   position: relative;
@@ -52,5 +48,9 @@
 
   .column-third {
     width: calc(100% / 3);
+  }
+
+  .column-15 {
+    flex-basis: 15%;
   }
 }

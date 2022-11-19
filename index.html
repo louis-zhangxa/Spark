@@ -16,13 +16,23 @@
   <header>
     <div class="row header">
       <div class="column-auto">
-        <button id="home">SPark</button>
+        <button id="home">Spark ✨</button>
+      </div>
+      <div class="column-auto">
+        <div>
+          <button class="favorite-list-button">
+            <i class="fa-solid fa-heart desktop-heart"> My favorite park</i>
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </div>
       </div>
       <div class="column-auto desktop-search">
-        <form action="" class="position-relative-desktop">
-          <input type="search" name="q" id="desktop-search-box" size="30">
-          <button id="desktop-search-button">Search</button>
-        </form>
+        <div>
+          <form action="" class="position-relative-desktop">
+            <input type="search" name="q" id="desktop-search-box" size="30">
+            <button id="desktop-search-button">Search</button>
+          </form>
+        </div>
       </div>
     </div>
   </header>
@@ -53,7 +63,7 @@
       <div data-view="favorite-list" class="favorite-list hidden">
         <div class="favorite-placeholder hidden">
           <h4>No park have been saved... <br> Get a random one?</h4>
-          <button>Get a Random Park!</button>
+          <button class="empty-data-button">Get a Random Park!</button>
         </div>
         <ul class="row favorite-list-row">
         </ul>
