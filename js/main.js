@@ -40,6 +40,13 @@ var park = {
   parkCode: null
 };
 
+var newPark = {
+  fullName: null,
+  photoUrl: null,
+  photoAlt: null,
+  parkCode: null
+};
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
@@ -91,31 +98,32 @@ function submitSearch(event) {
   xhr.send();
 }
 
-function checkParkStatus() {
+function checkParkStatus(parkcode) {
   if (data.parks.length !== 0) {
     for (var i = 0; i < data.parks.length; i++) {
-      if (data.parks[i].parkCode === park.parkCode) {
+      if (data.parks[i].parkCode === parkcode) {
         $favoriteIcon.className = 'fa-solid fa-star';
-        return;
+        return false;
       }
     }
     $favoriteIcon.className = 'fa-regular fa-star';
   }
 }
 
-function saveFavoritePark(event) {
+function saveFavoritePark() {
   if ($favoriteIcon.className !== 'fa-solid fa-star') {
     $favoriteIcon.className = 'fa-solid fa-star';
-    if (data.parks.length !== 0) {
-      for (var i = 0; i < data.parks.length; i++) {
-        if (data.parks[i].parkCode === park.parkCode) {
-          return;
-        }
-      }
-      data.parks.unshift(park);
-    } else {
-      data.parks.unshift(park);
-    }
+    park.fullName = newPark.fullName;
+    park.photoUrl = newPark.photoUrl;
+    park.photoAlt = newPark.photoAlt;
+    park.parkCode = newPark.parkCode;
+    data.parks.unshift(park);
+    park = {
+      fullName: null,
+      photoUrl: null,
+      photoAlt: null,
+      parkCode: null
+    };
   } else {
     $favoriteIcon.className = 'fa-regular fa-star';
     for (var j = 0; j < data.parks.length; j++) {
@@ -134,10 +142,12 @@ function getParkData() {
   xhr.addEventListener('load', function () {
     var i = getRandomInt(468);
 
-    park.fullName = xhr.response.data[i].fullName;
-    park.photoUrl = xhr.response.data[i].images[0].url;
-    park.photoAlt = xhr.response.data[i].images[0].altText;
-    park.parkCode = xhr.response.data[i].parkCode;
+    newPark = {
+      fullName: xhr.response.data[i].fullName,
+      photoUrl: xhr.response.data[i].images[0].url,
+      photoAlt: xhr.response.data[i].images[0].altText,
+      parkCode: xhr.response.data[i].parkCode
+    };
 
     $parkName.textContent = xhr.response.data[i].fullName;
     $parkImages1.setAttribute('src', xhr.response.data[i].images[0].url);
@@ -154,7 +164,7 @@ function getParkData() {
     $parkPhoneNumber.textContent = 'Tel: ' + xhr.response.data[i].contacts.phoneNumbers[0].phoneNumber;
     $parkEmail.textContent = xhr.response.data[i].contacts.emailAddresses[0].emailAddress;
 
-    checkParkStatus();
+    checkParkStatus(newPark.parkCode);
     $parkDetail.className = 'park-detail';
   });
   xhr.send();
@@ -166,10 +176,12 @@ function getParkDataByParkCode() {
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
 
-    park.fullName = xhr.response.data[0].fullName;
-    park.photoUrl = xhr.response.data[0].images[0].url;
-    park.photoAlt = xhr.response.data[0].images[0].altText;
-    park.parkCode = xhr.response.data[0].parkCode;
+    newPark = {
+      fullName: xhr.response.data[0].fullName,
+      photoUrl: xhr.response.data[0].images[0].url,
+      photoAlt: xhr.response.data[0].images[0].altText,
+      parkCode: xhr.response.data[0].parkCode
+    };
 
     $parkName.textContent = xhr.response.data[0].fullName;
     $parkImages1.setAttribute('src', xhr.response.data[0].images[0].url);
@@ -185,7 +197,9 @@ function getParkDataByParkCode() {
     $parkAddressLine2.textContent = xhr.response.data[0].addresses[0].city + ' ' + xhr.response.data[0].addresses[0].stateCode + ' ' + xhr.response.data[0].addresses[0].postalCode;
     $parkPhoneNumber.textContent = 'Tel: ' + xhr.response.data[0].contacts.phoneNumbers[0].phoneNumber;
     $parkEmail.textContent = xhr.response.data[0].contacts.emailAddresses[0].emailAddress;
-    checkParkStatus();
+
+    checkParkStatus(newPark.parkCode);
+
     $parkDetail.className = 'park-detail';
   });
   xhr.send();
