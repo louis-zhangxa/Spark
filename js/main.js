@@ -33,14 +33,14 @@ var $parkAddressLine2 = document.querySelector('#park-address-line2');
 var $parkPhoneNumber = document.querySelector('#park-phone-number');
 var $parkEmail = document.querySelector('#park-email');
 
-var park = {
+var parkInLocalStorage = {
   fullName: null,
   photoUrl: null,
   photoAlt: null,
   parkCode: null
 };
 
-var newPark = {
+var parkReceived = {
   fullName: null,
   photoUrl: null,
   photoAlt: null,
@@ -113,12 +113,12 @@ function checkParkStatus(parkcode) {
 function saveFavoritePark() {
   if ($favoriteIcon.className !== 'fa-solid fa-star') {
     $favoriteIcon.className = 'fa-solid fa-star';
-    park.fullName = newPark.fullName;
-    park.photoUrl = newPark.photoUrl;
-    park.photoAlt = newPark.photoAlt;
-    park.parkCode = newPark.parkCode;
-    data.parks.unshift(park);
-    park = {
+    parkInLocalStorage.fullName = parkReceived.fullName;
+    parkInLocalStorage.photoUrl = parkReceived.photoUrl;
+    parkInLocalStorage.photoAlt = parkReceived.photoAlt;
+    parkInLocalStorage.parkCode = parkReceived.parkCode;
+    data.parks.unshift(parkInLocalStorage);
+    parkInLocalStorage = {
       fullName: null,
       photoUrl: null,
       photoAlt: null,
@@ -127,7 +127,7 @@ function saveFavoritePark() {
   } else {
     $favoriteIcon.className = 'fa-regular fa-star';
     for (var j = 0; j < data.parks.length; j++) {
-      if (data.parks[j].parkCode === park.parkCode) {
+      if (data.parks[j].parkCode === parkInLocalStorage.parkCode) {
         data.parks.splice(j, 1);
         break;
       }
@@ -142,7 +142,7 @@ function getParkData() {
   xhr.addEventListener('load', function () {
     var i = getRandomInt(468);
 
-    newPark = {
+    parkReceived = {
       fullName: xhr.response.data[i].fullName,
       photoUrl: xhr.response.data[i].images[0].url,
       photoAlt: xhr.response.data[i].images[0].altText,
@@ -164,7 +164,7 @@ function getParkData() {
     $parkPhoneNumber.textContent = 'Tel: ' + xhr.response.data[i].contacts.phoneNumbers[0].phoneNumber;
     $parkEmail.textContent = xhr.response.data[i].contacts.emailAddresses[0].emailAddress;
 
-    checkParkStatus(newPark.parkCode);
+    checkParkStatus(parkReceived.parkCode);
     $parkDetail.className = 'park-detail';
   });
   xhr.send();
@@ -172,11 +172,11 @@ function getParkData() {
 
 function getParkDataByParkCode() {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://developer.nps.gov/api/v1/parks?parkCode=' + park.parkCode + '&limit=1&api_key=zfq2cSth1H6ynVcxdUiCUfdUdsTPyW6nusqU7OFY');
+  xhr.open('GET', 'https://developer.nps.gov/api/v1/parks?parkCode=' + parkInLocalStorage.parkCode + '&limit=1&api_key=zfq2cSth1H6ynVcxdUiCUfdUdsTPyW6nusqU7OFY');
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
 
-    newPark = {
+    parkReceived = {
       fullName: xhr.response.data[0].fullName,
       photoUrl: xhr.response.data[0].images[0].url,
       photoAlt: xhr.response.data[0].images[0].altText,
@@ -198,7 +198,7 @@ function getParkDataByParkCode() {
     $parkPhoneNumber.textContent = 'Tel: ' + xhr.response.data[0].contacts.phoneNumbers[0].phoneNumber;
     $parkEmail.textContent = xhr.response.data[0].contacts.emailAddresses[0].emailAddress;
 
-    checkParkStatus(newPark.parkCode);
+    checkParkStatus(parkReceived.parkCode);
 
     $parkDetail.className = 'park-detail';
   });
@@ -288,7 +288,7 @@ function backHome(event) {
 
 $searchResult.addEventListener('click', function (event) {
   if (event.target.className === 'park-image') {
-    park.parkCode = event.target.getAttribute('park-code');
+    parkInLocalStorage.parkCode = event.target.getAttribute('park-code');
     getParkDataByParkCode();
     $mobileSearch.className = 'row mobile-search hidden';
     $homePage.className = 'home-page hidden';
@@ -302,7 +302,7 @@ $searchResult.addEventListener('click', function (event) {
 
 $favoriteListRow.addEventListener('click', function (event) {
   if (event.target.className === 'favorite-park-image') {
-    park.parkCode = event.target.getAttribute('park-code');
+    parkInLocalStorage.parkCode = event.target.getAttribute('park-code');
     getParkDataByParkCode();
     $mobileSearch.className = 'row mobile-search hidden';
     $homePage.className = 'home-page hidden';
