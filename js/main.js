@@ -33,13 +33,6 @@ var $parkAddressLine2 = document.querySelector('#park-address-line2');
 var $parkPhoneNumber = document.querySelector('#park-phone-number');
 var $parkEmail = document.querySelector('#park-email');
 
-// var parkInLocalStorage = {
-//   fullName: null,
-//   photoUrl: null,
-//   photoAlt: null,
-//   parkCode: null
-// };
-
 var parkReceived = {
   fullName: null,
   photoUrl: null,
@@ -60,7 +53,6 @@ function refreshSearchList(card, node) {
 
 function submitSearch(event) {
   showSearchResult();
-  refreshSearchList('.park-info-card', $searchResult);
   event.preventDefault();
   var result = 'q=' + event.target.elements.q.value + '&';
   var xhr = new XMLHttpRequest();
