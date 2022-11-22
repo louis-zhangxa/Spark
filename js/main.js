@@ -33,12 +33,12 @@ var $parkAddressLine2 = document.querySelector('#park-address-line2');
 var $parkPhoneNumber = document.querySelector('#park-phone-number');
 var $parkEmail = document.querySelector('#park-email');
 
-var parkInLocalStorage = {
-  fullName: null,
-  photoUrl: null,
-  photoAlt: null,
-  parkCode: null
-};
+// var parkInLocalStorage = {
+//   fullName: null,
+//   photoUrl: null,
+//   photoAlt: null,
+//   parkCode: null
+// };
 
 var parkReceived = {
   fullName: null,
@@ -113,17 +113,13 @@ function checkParkStatus(parkcode) {
 function saveFavoritePark() {
   if ($favoriteIcon.className !== 'fa-solid fa-star') {
     $favoriteIcon.className = 'fa-solid fa-star';
-    parkInLocalStorage.fullName = parkReceived.fullName;
-    parkInLocalStorage.photoUrl = parkReceived.photoUrl;
-    parkInLocalStorage.photoAlt = parkReceived.photoAlt;
-    parkInLocalStorage.parkCode = parkReceived.parkCode;
-    data.parks.unshift(parkInLocalStorage);
-    parkInLocalStorage = {
-      fullName: null,
-      photoUrl: null,
-      photoAlt: null,
-      parkCode: null
+    var parkInLocalStorage = {
+      fullName: parkReceived.fullName,
+      photoUrl: parkReceived.photoUrl,
+      photoAlt: parkReceived.photoAlt,
+      parkCode: parkReceived.parkCode
     };
+    data.parks.unshift(parkInLocalStorage);
   } else {
     $favoriteIcon.className = 'fa-regular fa-star';
     for (var j = 0; j < data.parks.length; j++) {
@@ -172,7 +168,7 @@ function getParkData() {
 
 function getParkDataByParkCode() {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://developer.nps.gov/api/v1/parks?parkCode=' + parkInLocalStorage.parkCode + '&limit=1&api_key=zfq2cSth1H6ynVcxdUiCUfdUdsTPyW6nusqU7OFY');
+  xhr.open('GET', 'https://developer.nps.gov/api/v1/parks?parkCode=' + parkReceived.parkCode + '&limit=1&api_key=zfq2cSth1H6ynVcxdUiCUfdUdsTPyW6nusqU7OFY');
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
 
@@ -288,7 +284,7 @@ function backHome(event) {
 
 $searchResult.addEventListener('click', function (event) {
   if (event.target.className === 'park-image') {
-    parkInLocalStorage.parkCode = event.target.getAttribute('park-code');
+    parkReceived.parkCode = event.target.getAttribute('park-code');
     getParkDataByParkCode();
     $mobileSearch.className = 'row mobile-search hidden';
     $homePage.className = 'home-page hidden';
@@ -302,7 +298,7 @@ $searchResult.addEventListener('click', function (event) {
 
 $favoriteListRow.addEventListener('click', function (event) {
   if (event.target.className === 'favorite-park-image') {
-    parkInLocalStorage.parkCode = event.target.getAttribute('park-code');
+    parkReceived.parkCode = event.target.getAttribute('park-code');
     getParkDataByParkCode();
     $mobileSearch.className = 'row mobile-search hidden';
     $homePage.className = 'home-page hidden';
