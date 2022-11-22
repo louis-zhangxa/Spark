@@ -16,13 +16,23 @@
   <header>
     <div class="row header">
       <div class="column-auto">
-        <button id="home">SPark</button>
+        <button id="home">Spark ✨</button>
+      </div>
+      <div class="column-auto">
+        <div>
+          <button class="favorite-list-button">
+            <i class="fa-solid fa-heart desktop-heart"> My favorite park</i>
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </div>
       </div>
       <div class="column-auto desktop-search">
-        <form action="" class="position-relative-desktop">
-          <input type="search" name="q" id="desktop-search-box" size="30">
-          <button id="desktop-search-button">Search</button>
-        </form>
+        <div>
+          <form action="" class="position-relative-desktop">
+            <input type="search" name="q" id="desktop-search-box" size="30">
+            <button id="desktop-search-button">Search</button>
+          </form>
+        </div>
       </div>
     </div>
   </header>
@@ -50,12 +60,19 @@
         <ul class="row park-list-row">
         </ul>
       </div>
+      <div data-view="favorite-list" class="favorite-list hidden">
+        <div class="favorite-placeholder hidden">
+          <h4>No park have been saved... <br> Get a random one?</h4>
+          <button class="empty-data-button">Get a Random Park!</button>
+        </div>
+        <ul class="row favorite-list-row">
+        </ul>
+      </div>
       <div data-view="park-detail" class="park-detail hidden">
         <h3 id="park-name"></h3>
         <div class="row user-button">
           <div class="column-half user-button-flex">
             <button class="favorite-button"><i class="fa-regular fa-star"></i></button>
-            <!-- <i class="fa-solid fa-star"></i> -->
             <button class="user-random-button"><i class="fa-solid fa-dice"></i></button>
           </div>
         </div>

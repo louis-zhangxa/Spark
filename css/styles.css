@@ -13,12 +13,29 @@ header {
   background-color: #46586c;
 }
 
+.header {
+  justify-content: space-between;
+  align-items: center;
+}
+
 #home {
   color: white;
   background-color: transparent;
   border: 0;
   padding: 1rem;
   font-size: 20px;
+}
+
+.favorite-list-button {
+  padding: 1rem;
+  color: white;
+  border: 0;
+  font-size: 15px;
+  background-color: transparent;
+}
+
+.desktop-heart {
+  display: none !important;
 }
 
 .mobile-search {
@@ -56,7 +73,8 @@ header {
   align-items: center;
 }
 
-.random-button button {
+.random-button button,
+.favorite-placeholder button {
   margin-bottom: 3rem;
   background-color: #6c757d;
   color: white;
@@ -66,7 +84,8 @@ header {
   letter-spacing: 1px;
 }
 
-.search-placeholder {
+.search-placeholder,
+.favorite-placeholder {
   padding: 3rem 0;
   text-align: center;
 }
@@ -77,27 +96,53 @@ li {
   padding: 0;
 }
 
-.park-info-card {
+.park-info-card,
+.favorite-info-card {
   padding: 1rem;
   background-color: transparent;
 }
 
-.park-info-content-box {
+.park-info-content-box,
+.favorite-info-content-box {
   padding: 2rem;
   padding-top: 1rem;
   border-radius: 0.5rem;
   background-color: rgba(212, 216, 217, 0.789);
 }
 
-.park-info-content-box h3 {
+.favorite-info-content-box {
+  padding-bottom: 1rem;
+}
+
+.park-info-content-box h3,
+.favorite-info-content-box h3 {
   margin-top: 0;
   text-align: center;
 }
 
-.park-image {
+.park-image,
+.favorite-park-image {
   width: 100%;
-  height: 10rem;
+  height: 1rem;
   object-fit: cover;
+}
+
+.favorite-park-image {
+  height: 15rem;
+}
+
+.trash {
+  justify-content: center;
+  align-items: center;
+}
+
+.trash-can {
+  background-color: #eb617a;
+  color: white;
+  border: 0;
+  border-radius: 0.3rem;
+  padding: 0.5rem 0.7rem;
+  margin-top: 1rem;
 }
 
 .user-button {
@@ -167,11 +212,16 @@ li {
   }
 
   .header {
-    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  .favorite-list-button {
+    cursor: pointer;
   }
 
   .desktop-search {
     display: flex;
+    justify-content: end;
   }
 
   #desktop-search-box {
@@ -191,11 +241,22 @@ li {
     background-color: #46596c;
   }
 
+  .desktop-heart {
+    display: inline !important;
+    letter-spacing: 1.5px;
+  }
+
+  .favorite-list-button:hover {
+    color: pink;
+    transition: color 0.5s;
+  }
+
   .mobile-search {
     display: none;
   }
 
-  .random-button button {
+  .random-button button,
+  .favorite-placeholder button {
     cursor: pointer;
     background-color: #7b9ab7;
     color: white;
@@ -205,20 +266,45 @@ li {
     letter-spacing: 1px;
   }
 
-  .search-placeholder {
+  .random-button button:hover,
+  .favorite-placeholder button:hover {
+    transform: scale(1.2);
+    transition: transform 0.5s;
+  }
+
+  .search-placeholder,
+  .favorite-placeholder {
     color: whitesmoke;
     padding: 15rem 0;
     font-size: xx-large;
     text-align: center;
   }
 
-  .park-info-content-box {
+  .park-info-content-box,
+  .favorite-info-content-box {
     background-color: rgba(255, 255, 255, 0.719);
   }
 
-  .park-image {
+  .park-info-content-box:hover,
+  .favorite-info-content-box:hover {
+    transform: scale(1.08);
+    transition: 1s;
+  }
+
+  .park-image,
+  .favorite-park-image {
     cursor: pointer;
     height: 17rem;
+  }
+
+  .favorite-park-image {
+    height: 15rem;
+  }
+
+  .trash-can {
+    cursor: pointer;
+    margin-top: 0.6rem;
+    padding: 0.8rem 1rem;
   }
 
   .park-detail h3 {
