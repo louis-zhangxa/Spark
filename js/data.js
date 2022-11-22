@@ -17,3 +17,4 @@ if (previousDataJson !== null) {
 }
 
 window.addEventListener('beforeunload', storeDataInLocalStorage);
+window.addEventListener('pagehide', storeDataInLocalStorage);
